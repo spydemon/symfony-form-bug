@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <fieldset>
+            <legend>Form</legend>
+            {{ form_start(form) }}
+                <fieldset>
+                    <legend>Billing form row</legend>
+                    {{ form_row(form.billingAddress)}}
+                </fieldset>
+                <fieldset>
+                    <legend>Shipping form row</legend>
+                    {{ form_row(form.shippingAddress)}}
+                </fieldset>
+            {{ form_row(form) }}
+            {{ form_end(form) }}
+        </fieldset>
+    </body>
+</html>

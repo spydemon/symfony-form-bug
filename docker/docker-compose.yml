@@ -1,0 +1,24 @@
+# Should be used with the docker-base project that can be fetched here:
+# https://github.com/spydemon/docker-base
+version: '2.0'
+
+services:
+  web:
+    container_name: symfony_form_bug-web
+    expose:
+      - "80"
+    hostname: symfony_form_bug-web
+    image: spydemon/php80-symfony:0.1
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.symfony_form_bug-web.rule=Host(`symfony-form-bug.localhost`)"
+      - "traefik.docker.network=base"
+    volumes:
+      - ..:/var/www
+    networks:
+      - base
+      - default
+networks:
+  base:
+    external: true
+  default:
