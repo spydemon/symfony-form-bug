@@ -6,12 +6,20 @@
             {{ form_start(form) }}
                 <fieldset>
                     <legend>Billing form</legend>
-                    {{ form_row(form.billingAddress)}}
+                    {#
+                        Using the snake case version of the field name will produce a bug that will result in displaying
+                        its error at the root form instead of its current location.
+                    #}
+                    {{ form_row(form.billing_address)}}
                 </fieldset>
                 <fieldset>
                     <legend>Shipping form</legend>
                     {{ form_row(form.shippingAddress)}}
                 </fieldset>
+            {#
+                "form.billing_address" errors will endeed be renderer by the "form_row(form)" call intead of the
+                "form_row(form.billing_address)" one.
+            #}
             {{ form_row(form) }}
             {{ form_end(form) }}
         </fieldset>

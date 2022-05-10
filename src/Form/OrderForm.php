@@ -13,7 +13,7 @@ class OrderForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('shippingAddress', AddressForm::class);
-        $builder->add('billingAddress', AddressForm::class);
+        $builder->add('billing_address', AddressForm::class);
         $builder->add('submit', SubmitType::class);
     }
 
